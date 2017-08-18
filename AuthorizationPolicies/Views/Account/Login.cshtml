@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Who are ya mate?";
+}
+
+<div class="hero-unit">
+    <h1>Who are ya mate?</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <a asp-controller="Account" asp-action="LoginPicker" asp-route-returnurl="@ViewData["ReturnUrl"]" asp-route-nationality="GBR" asp-route-name="Daniel Radcliffe" asp-route-hair="Brown">
+            <img src="~/images/danielradcliffe.jpg" alt="Daniel Radcliff" title="Daniel Radcliff" />
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a asp-controller="Account" asp-action="LoginPicker" asp-route-returnurl="@ViewData["ReturnUrl"]" asp-route-nationality="GBR" asp-route-name="Rupert Grint" asp-route-hair="Ginger">
+            <img src="~/images/rupertgrint.jpg" alt="Rupert Grint" title="Rupert Grint" />
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a asp-controller="Account" asp-action="LoginPicker" asp-route-returnurl="@ViewData["ReturnUrl"]" asp-route-nationality="AUS" asp-route-name="Steve Irwin" asp-route-hair="Blonde">
+            <img src="~/images/steveirwin.jpg" alt="Steve Irwin" title="Steve Irwin" />
+        </a>
+    </div>
+</div>

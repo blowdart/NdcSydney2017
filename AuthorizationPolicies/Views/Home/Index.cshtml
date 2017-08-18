@@ -1,0 +1,58 @@
+﻿@model AuthorizationPolicies.Model.HomeViewModel
+@{
+    ViewData["Title"] = "G'day mate";
+}
+
+<div class="hero-unit text-center">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1>G'Day Mate</h1>
+    }
+    else
+    {
+        <h1>G'Day @User.Identity.Name</h1>
+    }
+
+    <h2>Weather:
+        <a href="@Url.Action("WeatherPicker")">
+        @switch (Model.Season)
+        {
+            case AuthorizationPolicies.Season.Autumn:
+                <span>🍂</span>
+                break;
+            case AuthorizationPolicies.Season.Spring:
+                <span>🌥️</span>
+                break;
+            case AuthorizationPolicies.Season.Summer:
+                <span>☀️</span>
+                break;
+            case AuthorizationPolicies.Season.Winter:
+                <span>⛄</span>
+                break;
+            default:
+                break;
+        }
+        </a>
+    </h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6 text-center">
+        <h2>🏖️</h2>
+        <h2>Outside</h2>
+        <form asp-Controller="Location" asp-action="Outside" method="get">
+            <button type="submit" class="btn btn-warning btn-primary">
+                Go
+            </button>
+        </form>
+    </div>
+    <div class="col-md-6 text-center">
+        <h2>🏠</h2>
+        <h2>Inside</h2>
+        <form asp-Controller="Location" asp-action="Inside" method="get">
+            <button type="submit" class="btn btn-success btn-primary">
+                Go
+            </button>
+        </form>
+    </div>
+</div>

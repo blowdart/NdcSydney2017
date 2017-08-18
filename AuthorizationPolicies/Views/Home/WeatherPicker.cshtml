@@ -1,0 +1,39 @@
+﻿@model AuthorizationPolicies.Model.HomeViewModel
+@{
+    ViewData["Title"] = "Play God";
+}
+
+<div class="hero-unit text-center">
+    <h1>
+        Weather:
+        @switch (Model.Season)
+        {
+            case AuthorizationPolicies.Season.Autumn:
+                <span>🍂</span>
+                break;
+            case AuthorizationPolicies.Season.Spring:
+                <span>🌥️</span>
+                break;
+            case AuthorizationPolicies.Season.Summer:
+                <span>☀️</span>
+                break;
+            case AuthorizationPolicies.Season.Winter:
+                <span>⛄</span>
+                break;
+            default:
+                break;
+        }
+    </h1>
+    <h2>Force climate change:</h2>
+    <form method="post">
+        <label class="radio-inline"><input type="radio" name="season" value="@AuthorizationPolicies.Season.Spring">🌥️</label>
+        <label class="radio-inline"><input type="radio" name="season" value="@AuthorizationPolicies.Season.Summer">☀️</label>
+        <label class="radio-inline"><input type="radio" name="season" value="@AuthorizationPolicies.Season.Autumn">🍂</label>
+        <label class="radio-inline"><input type="radio" name="season" value="@AuthorizationPolicies.Season.Winter">⛄</label>
+        <br />
+        <button type="submit" class="btn btn-primary">
+            Change Season
+        </button>
+    </form>
+</div>
+
